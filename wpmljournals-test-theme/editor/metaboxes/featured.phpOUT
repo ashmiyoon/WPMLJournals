@@ -1,0 +1,62 @@
+<?php
+
+function get_text_featured($post_id) {
+    global $wpdb;
+
+    // Get the post trid, then select all text indices, adding a 'checked' column
+    // This column is true for all indices the post is associated to
+    $res = $wpdb->get_results(<<<SQL
+        SELECT 1
+        FROM wp_intcp_featured
+        WHERE text_trid = (
+            SELECT trid
+            FROM wp_icl_translations
+            WHERE element_type = 'post_article' AND element_id = $post_id
+            LIMIT 1
+        )
+    SQL);
+
+    return !empty($res);
+}
+
+function set_text_featured($post_trid, $is_featured) {
+    global $wpdb;
+
+    $wpdb->query("START TRANSACTION");
+
+    $res1 = $wpdb->query("DELETE FROM wp_intcp_featured WHERE text_trid = $post_trid");
+
+    $res2 = true;
+    if ($is_featured) {
+        $res2 = $wpdb->query("INSERT INTO wp_intcp_featured (text_trid) VALUES ($post_trid)");
+    }
+
+    if ($res1 !== false && $res2 !== false) {
+        $wpdb->query("COMMIT");
+    } else {
+        $wpdb->query("ROLLBACK");
+    }
+}
+
+function featured_html_callback($post) {
+    $is_featured = get_text_featured($post->ID);
+    $checked = $is_featured ? "checked" : "";
+    echo "<label>
+        <input type='checkbox' name='intcp_text_featured' value='true' $checked></input>
+        Display as featured text on the home page
+    </label>";
+}
+
+function featured_save_callback($post_trid) {
+    $is_featured = isset($_POST['intcp_text_featured']);
+    set_text_featured($post_trid, $is_featured);
+}
+
+function featured_metabox_info() {
+    return [
+        'slug' => 'featured',
+        'name' => "Featured texts",
+        'html_callback' => 'featured_html_callback',
+        'save_callback' => 'featured_save_callback',
+    ];
+}

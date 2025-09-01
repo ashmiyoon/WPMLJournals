@@ -1,0 +1,128 @@
+<?php
+
+function icp_enqueue_styles() {
+    wp_enqueue_style('google-font-eb-garamond', 'https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap', false);
+	wp_enqueue_style('icp-scratch-style', get_stylesheet_uri(), [], filemtime(get_template_directory() . '/style.css'));
+}
+add_action('wp_enqueue_scripts', 'icp_enqueue_styles');
+
+function my_theme_load_theme_textdomain() {
+    load_theme_textdomain('icp-scratch', get_template_directory() . '/langs');
+}
+
+// This loads the string translations
+add_action('after_setup_theme', 'my_theme_load_theme_textdomain');
+
+require_once(get_template_directory() . "/util/routes.php");
+
+// Set up the rewriting rules for custom routes
+add_filter('query_vars', 'add_issue_query_vars');
+add_action('init', 'add_issue_routes');
+// add_action('after_switch_theme', 'add_issue_routes');
+
+function custom_title() {
+    $page_type = get_query_var('page_type');
+    if ($page_type) {
+		switch ($page_type) {
+			case 'search': return __("Search", "icp-scratch");
+			case 'contact': return __("Contact", "icp-scratch");
+			case 'publications': return __("All publications", "icp-scratch");
+			case 'periodicals': {
+                $mag_slug = get_query_var('periodical_slug');
+				if ($mag_slug) {
+                    $issue_slug = get_query_var('issue_slug');
+                    global $wpdb;
+					if ($issue_slug) {
+                        $issue_res = $wpdb->get_results(
+                            $wpdb->prepare(
+                                <<<SQL
+                                    SELECT issue.title
+                                    FROM wp_mlj_magazines AS mag
+                                    JOIN wp_mlj_issues AS issue ON issue.mag_id = mag.id AND issue.slug = %s
+                                    WHERE mag.slug = %s
+                                SQL,
+                                $issue_slug, $mag_slug
+                            )
+                        );
+                        return $issue_res ? $issue_res[0]->title : __("Page not found");
+					} else {
+						$mag_res = $wpdb->get_results($wpdb->prepare(
+                            "SELECT title FROM wp_mlj_magazines WHERE slug = %s"
+                        , $mag_slug));
+                        return $mag_res ? $mag_res[0]->title : __("Page not found");
+					}
+				} else {
+					return __("Periodicals", "icp-scratch");
+				}
+			}
+		}
+    }
+}
+
+function title_function($title, $sep, $seplocation) {
+    $fix = custom_title();
+    if ($fix) {
+        return match ($seplocation) {
+            'left' => "$sep $fix",
+            'right' => "$fix $sep",
+        };
+    } else {
+        return $title;
+    }
+}
+add_filter('wp_title', 'title_function', 10, 3);
+
+// This is necessary for WPML to generate the right alternate link metadata in custom routes
+// Otherwise it will just link back to the home page
+function custom_wpml_alternate_hreflang_func($url, $lang_code) {
+    $fix = map_custom_url($lang_code);
+    if ($fix) {
+        // return $fix;
+        $url = str_replace("/$lang_code/", $url, $fix);
+    }
+    return $url;
+}
+add_filter('wpml_alternate_hreflang', 'custom_wpml_alternate_hreflang_func', 10, 2);
+
+// Some utility functions below
+
+function format_mysql_date_with_specificity($date_str, $specificity) {
+    $date = new Datetime($date_str);
+    return match ((int)$specificity) {
+        0 => null,
+        1 => $date->format("Y"),
+        2 => $date->format("Y-m"),
+        3 => $date->format("Y-m-d"),
+        default => assert(false)
+    };
+}
+
+function throw_404() {
+    // FIXME this doesn't actually throw a 404 status code
+    status_header(404);
+	nocache_headers();
+    get_template_part('pages/404');
+    exit;
+}
+
+function select_tcp_for_lang($lang) {
+    return match ($lang) {
+        'en' => 'tcp',
+        'it' => 'ipc',
+        'es' => 'epc',
+        'tr' => 'komunist-parti',
+        default => null
+    };
+}
+
+function select_cl_for_lang($lang) {
+    return match ($lang) {
+        'en' => 'communist-left',
+        'it' => 'comunismo',
+        'fr' => 'la-gauche-comuniste',
+        'es' => 'la-izquierda-comunista',
+        default => null
+    };
+}
+
+?>

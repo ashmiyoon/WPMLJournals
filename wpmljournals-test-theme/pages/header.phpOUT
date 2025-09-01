@@ -1,0 +1,28 @@
+<?php
+$cur_lang = apply_filters('wpml_current_language', null);
+// $url_root = get_bloginfo('url') . "/" . $cur_lang;
+$url_root = "/{$cur_lang}";
+?>
+
+<header>
+    <div class="top">
+        <h1><a href="<?php echo $url_root ?>/">Research Publication Collective</a></h1>
+        <div class="lang-switcher">
+            <?php do_action('wpml_add_language_selector'); ?>
+        </div>
+    </div>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="<?php echo $url_root ?>/">Home</a></li>
+            <li>| <a href="<?php echo $url_root ?>/party-theses/">Party Theses</a></li>
+            <li>| <a href="<?php echo $url_root ?>/who-we-are/">Who We Are and What We Want</a></li>
+            <li>| <a href="<?php echo $url_root ?>/contact/">Contact</a></li>
+        </ul>
+        <ul>
+            <li><a href="<?php echo $url_root ?>/periodicals/">Periodicals</a>
+            <li>: <a href="<?php echo $url_root ?>/periodicals/tcp/">The Communist Party</a>
+            <li>| <a href="<?php echo $url_root ?>/periodicals/communist-left/">Communist Left</a>
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,102 @@
+# Spanish translation
+
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es"
+
+msgid "International Communist Party"
+msgstr "Partido Comunista Internacional"
+
+msgid "Home"
+msgstr "Inicio"
+
+msgid "Unitary and Invariant Party Theses"
+msgstr "Tesis unitarias e invariantes del partido"
+
+msgid "Who We Are and What We Want"
+msgstr "Quiénes somos y qué queremos"
+
+msgid "Contact"
+msgstr "Contacto"
+
+msgid "Periodicals"
+msgstr "Periódicos"
+
+msgid "Texts"
+msgstr "Textos"
+
+msgid "Search"
+msgstr "Buscar"
+
+# Home page
+
+msgid "What distinguishes our party"
+msgstr "Qué distingue a nuestro partido"
+
+msgid "The line running from Marx to Lenin to the foundation of the Third International and the birth of the Communist Party of Italy at Leghorn (Livorno) in 1921, and from there to the struggle of the Italian Communist Left against the degeneration in Moscow and to the rejection of popular fronts and coalitions of resistance groups."
+msgstr "La línea de Marx a Lenin a la fundación de la III Internacional y del Partido Comunista de Italia a Livorno 1921, a la lucha de la Izquierda Comunista Italiana contra la degeneración de Moscú, al rechazo de los Frentes Populares y de los bloques partisanos."
+
+msgid "The line running from Marx to Lenin to the foundation of the Third International and the birth of the Communist Party of Italy at Livorno in 1921, and from there to the struggle of the Italian Communist Left against the degeneration in Moscow and to the rejection of popular fronts and coalitions of resistance groups."
+msgstr "La línea de Marx a Lenin a la fundación de la III Internacional y del Partido Comunista de Italia a Livorno 1921, a la lucha de la Izquierda Comunista Italiana contra la degeneración de Moscú, al rechazo de los Frentes Populares y de los bloques partisanos."
+
+msgid "The tough work of restoring the revolutionary doctrine and the party organ, in contact with the working class, outside the realm of personal politics and electoral maneuvers."
+msgstr "La dura obra de restauración de la doctrina y del órgano revolucionario, en contacto con la clase obrera, fuera del politiqueo personal y electorero."
+
+msgid "Latest additions"
+msgstr "Últimas adiciones"
+
+msgid "In all languages"
+msgstr "En todos los idiomas"
+
+# ---
+
+msgctxt "date format ymd"
+msgid "F j, Y"
+msgstr "j \\d\\e F \\d\\e Y"
+
+msgid "Categories"
+msgstr "Categorías"
+
+msgid "All publications"
+msgstr "Publicaciones"
+
+msgid "Child categories"
+msgstr "Subcategorías"
+
+msgid "Child posts:"
+msgstr "Partes:"
+
+msgid "Parent post:"
+msgstr "Parte de:"
+
+msgctxt "periodicals"
+msgid "Ongoing"
+msgstr "Actuales"
+
+msgctxt "periodicals"
+msgid "Archived"
+msgstr "Archivados"
+
+msgid "No issues listed."
+msgstr "No hay ningún número."
+
+msgid "No articles listed."
+msgstr "No hay ningún artículo."
+
+# TODO make this better..or remove
+msgctxt "date"
+msgid "Published in %s."
+msgstr "Publicado en %s."
+
+msgctxt "sources"
+msgid "This article was published in:"
+msgstr "Este artículo ha sido publicado en:"
+
+msgid "Available translations:"
+msgstr "Traducciones existentes:"
+
+msgid "Indices"
+msgstr "Índices"

@@ -1,0 +1,124 @@
+# Italian translation
+
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it"
+
+msgid "International Communist Party"
+msgstr "Partito Comunista Internazionale"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Unitary and Invariant Party Theses"
+msgstr "Corpo unitario e invariante delle tesi del partito"
+
+msgid "Who We Are and What We Want"
+msgstr "Chi siamo e cosa vogliamo"
+
+msgid "Contact"
+msgstr "Contatti"
+
+msgid "Periodicals"
+msgstr "Periodici"
+
+msgid "Texts"
+msgstr "Testi"
+
+msgid "Search"
+msgstr "Ricerca"
+
+# Home page
+
+msgid "What distinguishes our party"
+msgstr "Distingue il nostro partito"
+
+msgid "The line running from Marx to Lenin to the foundation of the Third International and the birth of the Communist Party of Italy at Leghorn (Livorno) in 1921, and from there to the struggle of the Italian Communist Left against the degeneration in Moscow and to the rejection of popular fronts and coalitions of resistance groups."
+msgstr "La linea da Marx a Lenin, alla fondazione della III Internazionale, a Livorno 1921, nascita del Partito Comunista d’Italia, alla lotta della Sinistra Comunista Italiana contro la degenerazione di Mosca, al rifiuto dei fronti popolari e dei blocchi partigiani."
+
+msgid "The line running from Marx to Lenin to the foundation of the Third International and the birth of the Communist Party of Italy at Livorno in 1921, and from there to the struggle of the Italian Communist Left against the degeneration in Moscow and to the rejection of popular fronts and coalitions of resistance groups."
+msgstr "La linea da Marx a Lenin, alla fondazione della III Internazionale, a Livorno 1921, nascita del Partito Comunista d’Italia, alla lotta della Sinistra Comunista Italiana contro la degenerazione di Mosca, al rifiuto dei fronti popolari e dei blocchi partigiani."
+
+msgid "The tough work of restoring the revolutionary doctrine and the party organ, in contact with the working class, outside the realm of personal politics and electoral maneuvers."
+msgstr "La dura opera del restauro della dottrina e dell’organo rivoluzionario, a contatto con la classe operaia, fuori dal politicantismo personale ed elettoralesco."
+
+msgid "Latest additions"
+msgstr "Ultimi aggiunti"
+
+msgid "In all languages"
+msgstr "In tutte le lingue"
+
+# ---
+
+# this is the date format, which uses special notation
+# I already set it to something that should display like "1 genaio 2000"
+msgctxt "date format ymd"
+msgid "F j, Y"
+msgstr "j F Y"
+
+# needs translation starting below, used spanish as example
+# only the "msgstr" part needs to be translated
+
+msgid "Categories"
+msgstr "Categorie"
+
+msgid "All publications"
+msgstr "Tutte le pubblicazioni"
+
+msgid "Child categories"
+msgstr "Categorie figlie"
+
+msgid "Child posts:"
+msgstr "Articoli figli:"
+
+msgid "Parent post:"
+msgstr "Articolo genitore:"
+
+msgctxt "periodicals"
+msgid "Ongoing"
+msgstr "In corso"
+
+msgctxt "periodicals"
+msgid "Archived"
+msgstr "Archiviati"
+
+msgid "No issues listed."
+msgstr "Nessun numero disponibile."
+
+msgid "No articles listed."
+msgstr "Nessun articolo disponibile."
+
+# "%s" is notation for where the date goes
+msgctxt "date"
+msgid "Published in %s."
+msgstr "Pubblicato in %s."
+
+msgctxt "sources"
+msgid "This article was published in:"
+msgstr "Questo articolo è stato pubblicato in:"
+
+msgid "Available translations:"
+msgstr "Traduzioni disponibili:"
+
+# Contact page
+
+msgid "Email"
+msgstr "Posta elettronica"
+
+msgid "Addresses"
+msgstr "Indirizzi"
+
+msgid "Italy"
+msgstr "Italia"
+
+msgid "Florence"
+msgstr "Firenze"
+
+msgid "The Florence branch is open for readers and sympathizers every Wednesday from 9 p.m."
+msgstr "La sede di Firenze è aperta per lettori e simpatizzanti ogni mercoledì dalle 21:00."
+
+msgid "Indices"
+msgstr "Indici"
